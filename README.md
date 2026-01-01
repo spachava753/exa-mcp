@@ -1,63 +1,73 @@
-# My MCP Server
+# Exa MCP Server
 
-A Model Context Protocol (MCP) server template for Go.
+An MCP (Model Context Protocol) server that exposes Exa AI's search capabilities as tools.
 
-## Quick Start
+## Tools
 
-1. **Clone and customize:**
+This server provides the following tools:
+
+### exa_search
+Perform web searches using Exa's AI-powered search engine. Supports:
+- **neural**: Embeddings-based semantic search
+- **fast**: Streamlined neural search
+- **auto**: Intelligently combines search methods (default)
+- **deep**: Comprehensive search with query expansion
+
+### exa_find_similar
+Find web pages similar to a given URL. Useful for discovering related content, competitor analysis, or finding more resources on a topic.
+
+### exa_get_contents
+Fetch and extract content from specific URLs. Returns clean text, optional summaries, and metadata. Supports live crawling for fresh content.
+
+### exa_answer
+Get an AI-generated answer to a question based on web search results. Returns a concise answer with citations to source documents.
+
+## Configuration
+
+Set the `EXA_API_KEY` environment variable with your Exa API key.
+
 ```bash
-# Update module path
-go mod edit -module github.com/yourusername/your-mcp-server
-
-# Update imports in main.go and internal/
-# Update server name in internal/server.go
+export EXA_API_KEY="your-api-key-here"
 ```
 
-2. **Build and run:**
+## Usage
+
+### As an MCP Server
+
+Run the server:
+
 ```bash
-go build -o my-mcp-server .
-./my-mcp-server
+./exa-mcp-server
 ```
 
-3. **Configure with Claude Desktop** (`claude_desktop_config.json`):
-```json
-{
-  "mcpServers": {
-    "my-mcp-server": {
-      "command": "/path/to/my-mcp-server"
-    }
-  }
-}
+Or with go run:
+
+```bash
+go run . 
 ```
 
-## Adding Tools
+### Version
 
-See [AGENTS.md](AGENTS.md) for detailed instructions on adding new tools.
+```bash
+./exa-mcp-server version
+```
 
-## Example Tool
+## Development
 
-The template includes an `echo` tool that demonstrates the basic pattern:
+### Regenerating the SDK
 
-```go
-// Define args with jsonschema tags
-type EchoArgs struct {
-    Message string `json:"message" jsonschema:"The message to echo back"`
-}
+The SDK is generated from the OpenAPI spec using [ogen](https://github.com/ogen-go/ogen):
 
-// Define tool metadata
-var EchoToolDef = mcp.Tool{
-    Name:        "echo",
-    Description: "Echoes back the provided message",
-}
+```bash
+ogen --target exasdk --clean exa-openapi-spec.yaml
+```
 
-// Implement handler
-func EchoTool(ctx context.Context, req *mcp.CallToolRequest, args EchoArgs) (*mcp.CallToolResult, EchoOutput, error) {
-    return &mcp.CallToolResult{
-        Content: []mcp.Content{&mcp.TextContent{Text: args.Message}},
-    }, EchoOutput{Echo: args.Message}, nil
-}
+### Building
+
+```bash
+go build .
 ```
 
 ## License
 
-MIT
+See LICENSE file.

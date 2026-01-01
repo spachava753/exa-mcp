@@ -50,6 +50,6 @@ changelog:
 release:
   github:
     owner: spachava753
-    name: my-mcp-server
+    name: exa-mcp
   draft: false
   prerelease: auto

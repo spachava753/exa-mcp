@@ -11,7 +11,7 @@ import (
 	"syscall"
 
 	"github.com/modelcontextprotocol/go-sdk/mcp"
-	"github.com/example/my-mcp-server/internal" // TODO: Replace with your module path
+	"github.com/spachava753/exa-mcp/internal"
 )
 
 var (
@@ -56,7 +56,7 @@ func getVersionInfo() (string, string, string) {
 
 func printVersion() {
 	version, commit, date := getVersionInfo()
-	fmt.Printf("my-mcp-server version %s\n", version) // TODO: Replace with your server name
+	fmt.Printf("exa-mcp-server version %s\n", version) // TODO: Replace with your server name
 	fmt.Printf("  commit: %s\n", commit)
 	fmt.Printf("  built: %s\n", date)
 }

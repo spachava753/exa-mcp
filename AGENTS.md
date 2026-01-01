@@ -47,16 +47,6 @@ func MyTool(ctx context.Context, req *mcp.CallToolRequest, args MyToolArgs) (*mc
 mcp.AddTool(server, &MyToolDef, MyTool)
 ```
 
-## Customization Checklist
-
-When using this template, update:
-
-- [ ] `go.mod`: Module path (`github.com/example/my-mcp-server`)
-- [ ] `main.go`: Import path, version command output
-- [ ] `internal/server.go`: Server Name and Title
-- [ ] `README.md`: Project description
-- [ ] `.goreleaser.yml`: Binary name if using goreleaser
-
 ## Key Patterns
 
 - **Tool handlers** return `(*mcp.CallToolResult, OutputType, error)`

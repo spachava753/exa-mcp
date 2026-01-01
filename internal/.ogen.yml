@@ -1,0 +1,6 @@
+generator:
+  ignore_not_implemented:
+    - "complicated reference"
+  features:
+    enable:
+      - "paths/client"

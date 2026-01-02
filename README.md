@@ -4,8 +4,6 @@ An MCP (Model Context Protocol) server that exposes Exa AI's search capabilities
 
 ## Tools
 
-This server provides the following tools:
-
 ### exa_search
 Perform web searches using Exa's AI-powered search engine. Supports:
 - **neural**: Embeddings-based semantic search
@@ -24,7 +22,7 @@ Get an AI-generated answer to a question based on web search results. Returns a 
 
 ## Configuration
 
-Set the `EXA_API_KEY` environment variable with your Exa API key.
+Set the `EXA_API_KEY` environment variable with your Exa API key:
 
 ```bash
 export EXA_API_KEY="your-api-key-here"
@@ -32,24 +30,23 @@ export EXA_API_KEY="your-api-key-here"
 
 ## Usage
 
-### As an MCP Server
-
 Run the server:
 
 ```bash
-./exa-mcp-server
+go run .
 ```
 
-Or with go run:
+Or build and run:
 
 ```bash
-go run . 
+go build -o exa-mcp .
+./exa-mcp
 ```
 
-### Version
+Show version:
 
 ```bash
-./exa-mcp-server version
+./exa-mcp version
 ```
 
 ## Development
@@ -59,7 +56,13 @@ go run .
 The SDK is generated from the OpenAPI spec using [ogen](https://github.com/ogen-go/ogen):
 
 ```bash
-ogen --target exasdk --clean exa-openapi-spec.yaml
+go generate ./internal/...
+```
+
+Or manually:
+
+```bash
+ogen --target internal/exasdk --clean internal/openapi-spec.yaml
 ```
 
 ### Building

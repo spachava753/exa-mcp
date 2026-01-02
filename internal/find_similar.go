@@ -11,11 +11,11 @@ import (
 
 // FindSimilarArgs defines input parameters
 type FindSimilarArgs struct {
-	URL            string   `json:"url" jsonschema:"required,description=The URL for which to find similar links"`
-	NumResults     int      `json:"numResults,omitempty" jsonschema:"description=Number of results to return (default 10)"`
-	IncludeDomains []string `json:"includeDomains,omitempty" jsonschema:"description=List of domains to include"`
-	ExcludeDomains []string `json:"excludeDomains,omitempty" jsonschema:"description=List of domains to exclude"`
-	GetContents    bool     `json:"getContents,omitempty" jsonschema:"description=If true, return page contents"`
+	URL            string   `json:"url" jsonschema:"The URL for which to find similar links"`
+	NumResults     int      `json:"numResults,omitempty" jsonschema:"Number of results to return (default 10)"`
+	IncludeDomains []string `json:"includeDomains,omitempty" jsonschema:"List of domains to include"`
+	ExcludeDomains []string `json:"excludeDomains,omitempty" jsonschema:"List of domains to exclude"`
+	GetContents    bool     `json:"getContents,omitempty" jsonschema:"If true, return page contents"`
 }
 
 // FindSimilarOutput is the structured output

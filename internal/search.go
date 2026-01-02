@@ -11,15 +11,15 @@ import (
 
 // SearchArgs defines input parameters for the search tool
 type SearchArgs struct {
-	Query          string   `json:"query" jsonschema:"required,description=The query string for the search"`
-	Type           string   `json:"type,omitempty" jsonschema:"enum=neural,enum=fast,enum=auto,enum=deep,description=Search type: neural (embeddings-based), fast (streamlined), auto (default - intelligently combines methods), deep (comprehensive with query expansion)"`
-	Category       string   `json:"category,omitempty" jsonschema:"enum=company,enum=research paper,enum=news,enum=pdf,enum=github,enum=tweet,enum=personal site,enum=people,enum=financial report,description=A data category to focus on"`
-	NumResults     int      `json:"numResults,omitempty" jsonschema:"description=Number of results to return (default 10)"`
-	IncludeDomains []string `json:"includeDomains,omitempty" jsonschema:"description=List of domains to include in the search"`
-	ExcludeDomains []string `json:"excludeDomains,omitempty" jsonschema:"description=List of domains to exclude from search results"`
-	IncludeText    []string `json:"includeText,omitempty" jsonschema:"description=Strings that must be present in webpage text (max 1 string, up to 5 words)"`
-	ExcludeText    []string `json:"excludeText,omitempty" jsonschema:"description=Strings that must not be present in webpage text"`
-	GetContents    bool     `json:"getContents,omitempty" jsonschema:"description=If true, return page contents along with search results"`
+	Query          string   `json:"query" jsonschema:"The query string for the search"`
+	Type           string   `json:"type,omitempty" jsonschema:"Search type: neural (embeddings-based), fast (streamlined), auto (default - intelligently combines methods), deep (comprehensive with query expansion)"`
+	Category       string   `json:"category,omitempty" jsonschema:"A data category to focus on"`
+	NumResults     int      `json:"numResults,omitempty" jsonschema:"Number of results to return (default 10)"`
+	IncludeDomains []string `json:"includeDomains,omitempty" jsonschema:"List of domains to include in the search"`
+	ExcludeDomains []string `json:"excludeDomains,omitempty" jsonschema:"List of domains to exclude from search results"`
+	IncludeText    []string `json:"includeText,omitempty" jsonschema:"Strings that must be present in webpage text (max 1 string, up to 5 words)"`
+	ExcludeText    []string `json:"excludeText,omitempty" jsonschema:"Strings that must not be present in webpage text"`
+	GetContents    bool     `json:"getContents,omitempty" jsonschema:"If true, return page contents along with search results"`
 }
 
 // SearchOutput is the structured output

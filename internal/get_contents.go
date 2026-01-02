@@ -11,11 +11,11 @@ import (
 
 // GetContentsArgs defines input parameters
 type GetContentsArgs struct {
-	URLs             []string `json:"urls" jsonschema:"required,description=Array of URLs to fetch content from"`
-	Livecrawl        string   `json:"livecrawl,omitempty" jsonschema:"enum=never,enum=fallback,enum=always,enum=preferred,description=Livecrawl mode: never, fallback (default), always, or preferred"`
-	MaxTextChars     int      `json:"maxTextChars,omitempty" jsonschema:"description=Maximum characters for text content"`
-	IncludeSummary   bool     `json:"includeSummary,omitempty" jsonschema:"description=If true, include AI-generated summary"`
-	SummaryQuery     string   `json:"summaryQuery,omitempty" jsonschema:"description=Custom query for summary generation"`
+	URLs             []string `json:"urls" jsonschema:"Array of URLs to fetch content from"`
+	Livecrawl        string   `json:"livecrawl,omitempty" jsonschema:"Livecrawl mode: never, fallback (default), always, or preferred"`
+	MaxTextChars     int      `json:"maxTextChars,omitempty" jsonschema:"Maximum characters for text content"`
+	IncludeSummary   bool     `json:"includeSummary,omitempty" jsonschema:"If true, include AI-generated summary"`
+	SummaryQuery     string   `json:"summaryQuery,omitempty" jsonschema:"Custom query for summary generation"`
 }
 
 // GetContentsOutput is the structured output

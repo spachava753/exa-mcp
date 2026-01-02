@@ -11,8 +11,8 @@ import (
 
 // AnswerArgs defines input parameters
 type AnswerArgs struct {
-	Query       string `json:"query" jsonschema:"required,description=The question or query to answer"`
-	IncludeText bool   `json:"includeText,omitempty" jsonschema:"description=If true, include full text content from sources"`
+	Query       string `json:"query" jsonschema:"The question or query to answer"`
+	IncludeText bool   `json:"includeText,omitempty" jsonschema:"If true, include full text content from sources"`
 }
 
 // AnswerOutput is the structured output
